@@ -1,0 +1,42 @@
+/* Print / Save as PDF: plain, high-contrast, chrome removed */
+@page { margin: 16mm 14mm; }
+
+:root, :root[data-theme="dark"], :root[data-theme="light"] {
+  --text: #111; --muted: #444; --faint: #666;
+  --accent: #1f2f9e; --accent-ink: #fff; --accent-soft: #eef0fb;
+  --teal: #0b6e69; --teal-soft: #eaf6f5; --lilac: #5b2fb0; --lilac-soft: #f3eefc;
+  --amber: #7a4700; --amber-soft: #fbf3e4; --rose: #a3173f; --rose-soft: #fcecef;
+  --line: #cfd3e0; --line-strong: #9aa1b8;
+  --glass: #fff; --glass-strong: #fff; --glass-hi: #f6f7fb;
+}
+
+body { background: #fff !important; color: #111; font-size: 10.5pt; line-height: 1.5; }
+body::before { display: none !important; }
+
+.topbar, .sidebar, .progress, .backdrop, .to-top, .toc-rail, .toc-inline, .pager, .page-tools, .skip-link, .search-results, .no-print { display: none !important; }
+.main { margin: 0 !important; padding: 0 !important; }
+.page-wrap { display: block; padding: 0 !important; }
+.page { max-width: none; }
+
+.glass, .b, .dgm, .tbl, .card, .answer, details.more, dl.terms, .call, .node, .mod-card {
+  background: #fff !important; box-shadow: none !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+h1 { font-size: 20pt; }
+h2 { font-size: 14pt; margin-top: 1.4em; page-break-after: avoid; break-after: avoid; }
+h3, h4 { page-break-after: avoid; break-after: avoid; }
+.b, .dgm, .answer, .call, table, dl.terms, .card { break-inside: avoid; page-break-inside: avoid; }
+.tbl { overflow: visible; }
+.tbl table { min-width: 0; }
+.tbl th { position: static; }
+a { color: #111; text-decoration: none; }
+details.more > summary::before { display: none; }
+.dgm-info, .dgm-cap .dh, .seg { display: none !important; }
+.dgm [data-mode-panel] { display: block !important; margin-bottom: .6rem; }
+.dgm-print { display: grid !important; grid-template-columns: 9rem 1fr; gap: .2rem .8rem; margin-top: .8rem; font-size: 9.5pt; }
+.dgm-print dt { font-weight: 600; }
+.dgm-print dd { margin: 0; }
+.pyr .lvl { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.print-module-title { page-break-before: always; break-before: page; }
+.print-module-title:first-child { page-break-before: auto; break-before: auto; }
+.print-topic { break-before: auto; }
